@@ -29,9 +29,9 @@ export async function POST(req: Request) {
     cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
 
     return new Response(JSON.stringify({ success: true }), { status: 201 });
-  } catch (e: any) {
-    // Check for unique constraint violation (this is specific to some DB drivers)
-    if (e.code === 'SQLITE_CONSTRAINT_UNIQUE') {
+  } catch (e) {
+    // Check for unique constraint violation
+    if (e && typeof e === 'object' && 'code' in e && e.code === 'SQLITE_CONSTRAINT_UNIQUE') {
        return new Response(JSON.stringify({ error: 'Username or email already taken' }), { status: 400 });
     }
     return new Response(JSON.stringify({ error: 'An error occurred' }), { status: 500 });
