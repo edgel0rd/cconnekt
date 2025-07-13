@@ -5,7 +5,7 @@ import { cookies } from 'next/headers';
 import { and, eq, or } from 'drizzle-orm';
 
 // GET all messages for a connection
-export async function GET(req: Request, { params }: { params: { connectionId: string } }) {
+export async function GET(request: Request, { params }: { params: { connectionId: string } }) {
   const sessionId = cookies().get(lucia.sessionCookieName)?.value ?? null;
   if (!sessionId) return new Response(null, { status: 401 });
   const { user } = await lucia.validateSession(sessionId);
@@ -29,7 +29,7 @@ export async function GET(req: Request, { params }: { params: { connectionId: st
 }
 
 // POST a new message
-export async function POST(req: Request, { params }: { params: { connectionId: string } }) {
+export async function POST(request: Request, { params }: { params: { connectionId: string } }) {
   const sessionId = cookies().get(lucia.sessionCookieName)?.value ?? null;
   if (!sessionId) return new Response(null, { status: 401 });
   const { user } = await lucia.validateSession(sessionId);

@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Link from 'next/link';
 
+import { cn } from '@/lib/utils';
+
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -17,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={cn("bg-background text-foreground", inter.className)}>
         <nav className="bg-white shadow-md">
           <div className="container mx-auto px-4">
             <div className="flex justify-between items-center py-4">
