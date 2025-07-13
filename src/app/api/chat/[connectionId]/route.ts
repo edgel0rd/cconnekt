@@ -4,14 +4,29 @@ import { chatMessages, connections } from '@/db/schema';
 import { cookies } from 'next/headers';
 import { and, eq, or } from 'drizzle-orm';
 
+import { lucia } from '@/lib/auth';
+import { db } from '@/db';
+import { chatMessages, connections } from '@/db/schema';
+import { cookies } from 'next/headers';
+import { and, eq, or } from 'drizzle-orm';
+
+type RouteContext = {
+  params: {
+    connectionId: string;
+  };
+};
+
 // GET all messages for a connection
-export async function GET(request: Request, { params }: { params: { connectionId: string } }) {
+export async function GET(request: Request, context: RouteContext) {
   const sessionId = cookies().get(lucia.sessionCookieName)?.value ?? null;
   if (!sessionId) return new Response(null, { status: 401 });
   const { user } = await lucia.validateSession(sessionId);
   if (!user) return new Response(null, { status: 401 });
 
-  const connectionId = parseInt(params.connectionId, 10);
+  const connectionId = parseInt(context.params.connectionId, 10);
+  if (isNaN(connectionId)) {
+    return new Response('Invalid connection ID', { status: 400 });
+  }
 
   // Security check: Ensure user is part of this connection
   const connection = await db.query.connections.findFirst({
@@ -29,14 +44,18 @@ export async function GET(request: Request, { params }: { params: { connectionId
 }
 
 // POST a new message
-export async function POST(request: Request, { params }: { params: { connectionId: string } }) {
+export async function POST(request: Request, context: RouteContext) {
   const sessionId = cookies().get(lucia.sessionCookieName)?.value ?? null;
   if (!sessionId) return new Response(null, { status: 401 });
   const { user } = await lucia.validateSession(sessionId);
   if (!user) return new Response(null, { status: 401 });
 
-  const connectionId = parseInt(params.connectionId, 10);
-  const { content } = await req.json();
+  const connectionId = parseInt(context.params.connectionId, 10);
+  if (isNaN(connectionId)) {
+    return new Response('Invalid connection ID', { status: 400 });
+  }
+  
+  const { content } = await request.json();
 
   // Security check
   const connection = await db.query.connections.findFirst({
@@ -53,3 +72,4 @@ export async function POST(request: Request, { params }: { params: { connectionI
 
   return new Response(JSON.stringify(newMessage), { status: 201 });
 }
+
