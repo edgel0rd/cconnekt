@@ -3,26 +3,23 @@ import { db } from '@/db';
 import { users } from '@/db/schema';
 import { Argon2id } from 'oslo/password';
 import { eq } from 'drizzle-orm';
+import { cookies } from 'next/headers';
 
-import type { NextApiRequest, NextApiResponse } from 'next';
-
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== 'POST') {
-    return res.status(405).end();
-  }
-
-  const { email, password } = req.body;
+export async function POST(req: Request) {
+  const { email, password } = await req.json();
 
   if (!email || !password) {
-    return res.status(400).json({ error: 'Missing required fields' });
+    return new Response(JSON.stringify({ error: 'Missing required fields' }), { status: 400 });
   }
 
   const existingUser = await db.query.users.findFirst({
     where: eq(users.email, email),
   });
 
-  if (!existingUser) {
-    return res.status(400).json({ error: 'Invalid credentials' });
+  if (!existingUser || !existingUser.hashedPassword) {
+    // NOTE: Important to await here to prevent timing attacks.
+    await new Argon2id().verify('', 'anything');
+    return new Response(JSON.stringify({ error: 'Invalid credentials' }), { status: 400 });
   }
 
   const validPassword = await new Argon2id().verify(
@@ -31,12 +28,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   );
 
   if (!validPassword) {
-    return res.status(400).json({ error: 'Invalid credentials' });
+    return new Response(JSON.stringify({ error: 'Invalid credentials' }), { status: 400 });
   }
 
   const session = await lucia.createSession(existingUser.id, {});
   const sessionCookie = lucia.createSessionCookie(session.id);
 
-  res.setHeader('Set-Cookie', sessionCookie.serialize());
-  return res.status(200).json({ success: true });
+  cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
+
+  return new Response(JSON.stringify({ success: true }), { status: 200 });
 }
