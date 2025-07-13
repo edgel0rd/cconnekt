@@ -1,0 +1,155 @@
+at Object.<anonymous> (.next/server/app/api/auth/user/route.js:166:3)
+  3 | import * as schema from './schema';
+  4 |
+> 5 | const sqlite = new Database('./src/db/local.db');
+    |               ^
+  6 |
+  7 | export const db = drizzle(sqlite, { schema });
+  8 | {
+  code: 'ERR_DLOPEN_FAILED',
+  page: '/api/auth/user'
+}
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 1777ms (1302 modules)
+ GET /profile 200 in 948ms
+ GET /profile 200 in 26ms
+ GET /api/auth/user 500 in 4127ms
+ ⨯ Error: libnode.so.108: cannot open shared object file: No such file or directory
+    at eval (src/db/index.ts:5:15)
+    at <unknown> (rsc)/./src/db/index.ts (/mnt/e/culture-connect/.next/server/app/api/auth/user/route.js:54:1)
+    at __webpack_require__ (.next/server/webpack-runtime.js:33:42)
+    at eval (webpack-internal:///(rsc)/./src/lib/auth.ts:7:61)
+    at <unknown> (rsc)/./src/lib/auth.ts (/mnt/e/culture-connect/.next/server/app/api/auth/user/route.js:76:1)
+    at __webpack_require__ (.next/server/webpack-runtime.js:33:42)
+    at eval (webpack-internal:///(rsc)/./src/app/api/auth/user/route.ts:5:67)
+    at <unknown> (rsc)/./src/app/api/auth/user/route.ts (/mnt/e/culture-connect/.next/server/app/api/auth/user/route.js:43:1)
+    at __webpack_require__ (.next/server/webpack-runtime.js:33:42)
+    at __webpack_require__ (.next/server/webpack-runtime.js:33:42)
+    at __webpack_exec__ (.next/server/app/api/auth/user/route.js:162:39)
+    at <unknown> (.next/server/app/api/auth/user/route.js:163:161)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:163:21)
+    at <unknown> (.next/server/app/api/auth/user/route.js:163:47)
+    at Object.<anonymous> (.next/server/app/api/auth/user/route.js:166:3)
+  3 | import * as schema from './schema';
+  4 |
+> 5 | const sqlite = new Database('./src/db/local.db');
+    |               ^
+  6 |
+  7 | export const db = drizzle(sqlite, { schema });
+  8 | {
+  code: 'ERR_DLOPEN_FAILED',
+  page: '/api/auth/user'
+}
+ GET /login 200 in 116ms
+ GET /api/auth/user 500 in 309ms
+ GET /login 200 in 20ms
+ ✓ Compiled /connections in 380ms (1309 modules)
+ GET /connections 200 in 478ms
+ ⨯ Error: libnode.so.108: cannot open shared object file: No such file or directory
+    at eval (src/db/index.ts:5:15)
+    at <unknown> (rsc)/./src/db/index.ts (/mnt/e/culture-connect/.next/server/app/api/auth/user/route.js:54:1)
+    at __webpack_require__ (.next/server/webpack-runtime.js:33:42)
+    at eval (webpack-internal:///(rsc)/./src/lib/auth.ts:7:61)
+    at <unknown> (rsc)/./src/lib/auth.ts (/mnt/e/culture-connect/.next/server/app/api/auth/user/route.js:76:1)
+    at __webpack_require__ (.next/server/webpack-runtime.js:33:42)
+    at eval (webpack-internal:///(rsc)/./src/app/api/auth/user/route.ts:5:67)
+    at <unknown> (rsc)/./src/app/api/auth/user/route.ts (/mnt/e/culture-connect/.next/server/app/api/auth/user/route.js:43:1)
+    at __webpack_require__ (.next/server/webpack-runtime.js:33:42)
+    at __webpack_require__ (.next/server/webpack-runtime.js:33:42)
+    at __webpack_exec__ (.next/server/app/api/auth/user/route.js:162:39)
+    at <unknown> (.next/server/app/api/auth/user/route.js:163:161)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:163:21)
+    at <unknown> (.next/server/app/api/auth/user/route.js:163:47)
+    at Object.<anonymous> (.next/server/app/api/auth/user/route.js:166:3)
+  3 | import * as schema from './schema';
+  4 |
+> 5 | const sqlite = new Database('./src/db/local.db');
+    |               ^
+  6 |
+  7 | export const db = drizzle(sqlite, { schema });
+  8 | {
+  code: 'ERR_DLOPEN_FAILED',
+  page: '/api/auth/user'
+}
+ GET /api/auth/user 500 in 385ms
+ ○ Compiling /api/connections ...
+ ✓ Compiled /api/connections in 530ms (1311 modules)
+ ⨯ Error: libnode.so.108: cannot open shared object file: No such file or directory
+    at eval (src/db/index.ts:5:15)
+    at <unknown> (rsc)/./src/db/index.ts (/mnt/e/culture-connect/.next/server/app/api/auth/user/route.js:54:1)
+    at __webpack_require__ (.next/server/webpack-runtime.js:33:42)
+    at eval (webpack-internal:///(rsc)/./src/lib/auth.ts:7:61)
+    at <unknown> (rsc)/./src/lib/auth.ts (/mnt/e/culture-connect/.next/server/app/api/auth/user/route.js:76:1)
+    at __webpack_require__ (.next/server/webpack-runtime.js:33:42)
+    at eval (webpack-internal:///(rsc)/./src/app/api/auth/user/route.ts:5:67)
+    at <unknown> (rsc)/./src/app/api/auth/user/route.ts (/mnt/e/culture-connect/.next/server/app/api/auth/user/route.js:43:1)
+    at __webpack_require__ (.next/server/webpack-runtime.js:33:42)
+    at __webpack_require__ (.next/server/webpack-runtime.js:33:42)
+    at __webpack_exec__ (.next/server/app/api/auth/user/route.js:162:39)
+    at <unknown> (.next/server/app/api/auth/user/route.js:163:161)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:163:21)
+    at <unknown> (.next/server/app/api/auth/user/route.js:163:47)
+    at Object.<anonymous> (.next/server/app/api/auth/user/route.js:166:3)
+  3 | import * as schema from './schema';
+  4 |
+> 5 | const sqlite = new Database('./src/db/local.db');
+    |               ^
+  6 |
+  7 | export const db = drizzle(sqlite, { schema });
+  8 | {
+  code: 'ERR_DLOPEN_FAILED',
+  page: '/api/auth/user'
+}
+ ⨯ Error: libnode.so.108: cannot open shared object file: No such file or directory
+    at eval (src/db/index.ts:5:15)
+    at <unknown> (rsc)/./src/db/index.ts (/mnt/e/culture-connect/.next/server/app/api/connections/route.js:54:1)
+    at __webpack_require__ (.next/server/webpack-runtime.js:33:42)
+    at eval (webpack-internal:///(rsc)/./src/lib/auth.ts:7:61)
+    at <unknown> (rsc)/./src/lib/auth.ts (/mnt/e/culture-connect/.next/server/app/api/connections/route.js:76:1)
+    at __webpack_require__ (.next/server/webpack-runtime.js:33:42)
+    at eval (webpack-internal:///(rsc)/./src/app/api/connections/route.ts:7:67)
+    at <unknown> (rsc)/./src/app/api/connections/route.ts (/mnt/e/culture-connect/.next/server/app/api/connections/route.js:43:1)
+    at __webpack_require__ (.next/server/webpack-runtime.js:33:42)
+    at __webpack_require__ (.next/server/webpack-runtime.js:33:42)
+    at __webpack_exec__ (.next/server/app/api/connections/route.js:162:39)
+    at <unknown> (.next/server/app/api/connections/route.js:163:161)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:163:21)
+    at <unknown> (.next/server/app/api/connections/route.js:163:47)
+    at Object.<anonymous> (.next/server/app/api/connections/route.js:166:3)
+  3 | import * as schema from './schema';
+  4 |
+> 5 | const sqlite = new Database('./src/db/local.db');
+    |               ^
+  6 |
+  7 | export const db = drizzle(sqlite, { schema });
+  8 | {
+  code: 'ERR_DLOPEN_FAILED',
+  page: '/api/connections'
+}
+ GET /api/auth/user 500 in 932ms
+ GET /api/connections 500 in 970ms
+ ⨯ Error: libnode.so.108: cannot open shared object file: No such file or directory
+    at eval (src/db/index.ts:5:15)
+    at <unknown> (rsc)/./src/db/index.ts (/mnt/e/culture-connect/.next/server/app/api/connections/route.js:54:1)
+    at __webpack_require__ (.next/server/webpack-runtime.js:33:42)
+    at eval (webpack-internal:///(rsc)/./src/lib/auth.ts:7:61)
+    at <unknown> (rsc)/./src/lib/auth.ts (/mnt/e/culture-connect/.next/server/app/api/connections/route.js:76:1)
+    at __webpack_require__ (.next/server/webpack-runtime.js:33:42)
+    at eval (webpack-internal:///(rsc)/./src/app/api/connections/route.ts:7:67)
+    at <unknown> (rsc)/./src/app/api/connections/route.ts (/mnt/e/culture-connect/.next/server/app/api/connections/route.js:43:1)
+    at __webpack_require__ (.next/server/webpack-runtime.js:33:42)
+    at __webpack_require__ (.next/server/webpack-runtime.js:33:42)
+    at __webpack_exec__ (.next/server/app/api/connections/route.js:162:39)
+    at <unknown> (.next/server/app/api/connections/route.js:163:161)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:163:21)
+    at <unknown> (.next/server/app/api/connections/route.js:163:47)
+    at Object.<anonymous> (.next/server/app/api/connections/route.js:166:3)
+  3 | import * as schema from './schema';
+  4 |
+> 5 | const sqlite = new Database('./src/db/local.db');
+    |               ^
+  6 |
+  7 | export const db = drizzle(sqlite, { schema });
+  8 | {
+  code: 'ERR_DLOPEN_FAILED',
+  page: '/api/connections'
