@@ -1,6 +1,4 @@
 import { db } from '@/db';
-import { users, userMovies, userArtists, userVenues } from '@/db/schema';
-import { eq, sql } from 'drizzle-orm';
 
 // --- TYPES ---
 type UserInterests = {

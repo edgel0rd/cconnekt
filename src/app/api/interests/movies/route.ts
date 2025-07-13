@@ -48,7 +48,7 @@ export async function POST(req: Request) {
     await db.insert(userMovies).values({ userId: user.id, movieId: movie.id });
 
     return new Response(JSON.stringify(movie), { status: 201 });
-  } catch (e) {
+  } catch (_e) {
     // Handle potential unique constraint violation if the user already has the movie
     return new Response('An error occurred', { status: 500 });
   }

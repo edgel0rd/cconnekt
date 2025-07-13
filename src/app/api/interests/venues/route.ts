@@ -48,7 +48,7 @@ export async function POST(req: Request) {
     await db.insert(userVenues).values({ userId: user.id, venueId: venue.id });
 
     return new Response(JSON.stringify(venue), { status: 201 });
-  } catch (e) {
+  } catch (_e) {
     return new Response('An error occurred', { status: 500 });
   }
 }

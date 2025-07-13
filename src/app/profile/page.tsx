@@ -75,7 +75,7 @@ export default function ProfilePage() {
   }, [router]);
 
   // --- HANDLER FUNCTIONS ---
-  const addItem = (url: string, setter: Function, currentItems: any[], propName: string) => async (value: string) => {
+  const addItem = (url: string, setter: React.Dispatch<React.SetStateAction<(Movie | Artist | Venue)[]>>, currentItems: (Movie | Artist | Venue)[], propName: string) => async (value: string) => {
     const res = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

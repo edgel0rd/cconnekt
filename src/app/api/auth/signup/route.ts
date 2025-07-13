@@ -33,7 +33,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     res.setHeader('Set-Cookie', sessionCookie.serialize());
     return res.status(201).json({ success: true });
-  } catch (e) {
+  } catch (_e) {
     // TODO: check for unique constraint violation
     return res.status(500).json({ error: 'An error occurred' });
   }
