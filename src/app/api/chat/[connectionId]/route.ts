@@ -4,12 +4,6 @@ import { chatMessages, connections } from '@/db/schema';
 import { cookies } from 'next/headers';
 import { and, eq, or } from 'drizzle-orm';
 
-import { lucia } from '@/lib/auth';
-import { db } from '@/db';
-import { chatMessages, connections } from '@/db/schema';
-import { cookies } from 'next/headers';
-import { and, eq, or } from 'drizzle-orm';
-
 type RouteContext = {
   params: {
     connectionId: string;
